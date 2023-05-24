@@ -1,26 +1,33 @@
-const toggleFavorite = (id: number) => {
-  let favorites: number[] = JSON.parse(
+interface Props {
+  name: string;
+  id: number;
+}
+
+const toggleFavorite = ({ name, id }: Props) => {
+  let favorites: object[] = JSON.parse(
     localStorage.getItem("favorites") || "[]"
   );
 
-  if (favorites.includes(id)) {
-    favorites = favorites.filter((pokeId) => pokeId !== id);
-  } else favorites.push(id);
+  if (favorites.some((item: any) => item.name === name)) {
+    favorites = favorites.filter((item: any) => item.name !== name);
+  } else {
+    favorites.push({ name, id });
+  }
 
   localStorage.setItem("favorites", JSON.stringify(favorites));
 };
 
-const existPokemonInFavorites = (id: number): boolean => {
+const existPokemonInFavorites = (name: string): boolean => {
   if (typeof window === "undefined") return false;
 
-  const favorites: number[] = JSON.parse(
+  const favorites: object[] = JSON.parse(
     localStorage.getItem("favorites") || "[]"
   );
 
-  return favorites.includes(id);
+  return favorites.some((item: any) => item.name === name);
 };
 
-const pokemons = (): number[] => {
+const pokemons = (): object[] => {
   return JSON.parse(localStorage.getItem("favorites") || "[]");
 };
 

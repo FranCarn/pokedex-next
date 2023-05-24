@@ -1,4 +1,4 @@
-import { Grid, Card } from "@nextui-org/react";
+import { Grid, Card, Text } from "@nextui-org/react";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -10,7 +10,7 @@ interface Props {
 export const FavoritePokemonsCard = ({ name, id }: Props) => {
   const router = useRouter();
   const handleRedirect = () => {
-    router.push(`/pokemon/${name}`);
+    router.push(`/name/${name}`);
   };
 
   return (
@@ -26,6 +26,11 @@ export const FavoritePokemonsCard = ({ name, id }: Props) => {
           width={"100 %"}
           height={140}
         />
+        <Card.Footer>
+          <Text css={{ textTransform: "capitalize", marginLeft: "70%" }}>
+            {name}
+          </Text>
+        </Card.Footer>
       </Card>
     </Grid>
   );

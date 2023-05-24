@@ -25,10 +25,10 @@ const confettiOptions = {
 
 const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
   const [isFavorite, setIsFavorite] = useState<boolean>(
-    localFavorites.existPokemonInFavorites(pokemon.id)
+    localFavorites.existPokemonInFavorites(pokemon.name)
   );
   const handleFavorite = () => {
-    localFavorites.toggleFavorite(pokemon.id);
+    localFavorites.toggleFavorite({ name: pokemon.name, id: pokemon.id });
     setIsFavorite(!isFavorite);
     if (isFavorite) return;
     confetti(confettiOptions);
