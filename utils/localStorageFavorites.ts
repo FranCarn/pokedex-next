@@ -1,3 +1,5 @@
+import { FavoritePokemon } from "../interfaces";
+
 interface Props {
   name: string;
   id: number;
@@ -27,7 +29,7 @@ const existPokemonInFavorites = (name: string): boolean => {
   return favorites.some((item: any) => item.name === name);
 };
 
-const pokemons = (): object[] => {
+const pokemons = (): FavoritePokemon[] => {
   return JSON.parse(localStorage.getItem("favorites") || "[]");
 };
 
