@@ -13,7 +13,8 @@ export const Nabvar = () => {
     alignItems: "center",
     justifyContent: "start",
     padding: "0 20px",
-    backgroundColor: theme?.colors.gray900.value,
+    backgroundColor: theme?.colors.gray100.value,
+    marginBottom: "2rem",
   };
 
   return (

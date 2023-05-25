@@ -21,8 +21,9 @@ export const PokemonCard: React.FC<Props> = ({ pokemon }) => {
             src={img}
             alt={name}
             title={name}
-            width="100%"
+            width="35%"
             height={150}
+            css={{ marginTop: 10, objectFit: "scale-down" }}
           />
         </Card.Body>
         <Card.Footer>

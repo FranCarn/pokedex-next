@@ -9,7 +9,6 @@ const toggleFavorite = ({ name, id }: Props) => {
   let favorites: object[] = JSON.parse(
     localStorage.getItem("favorites") || "[]"
   );
-
   if (favorites.some((item: any) => item.name === name)) {
     favorites = favorites.filter((item: any) => item.name !== name);
   } else {

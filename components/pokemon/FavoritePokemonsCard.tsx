@@ -14,7 +14,7 @@ export const FavoritePokemonsCard = ({ name, id }: Props) => {
   };
 
   return (
-    <Grid xs={6} sm={3} md={2} xl={1}>
+    <Grid xs={12} sm={4} md={3} xl={2}>
       <Card
         isHoverable
         isPressable
@@ -24,7 +24,7 @@ export const FavoritePokemonsCard = ({ name, id }: Props) => {
         <Card.Image
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
           width={"100 %"}
-          height={140}
+          height={150}
         />
         <Card.Footer>
           <Text css={{ textTransform: "capitalize", marginLeft: "70%" }}>
