@@ -22,10 +22,10 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
           rel="shortcut icon"
           href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1"
         />
-        <meta property="og:title" content={`Informacion sobre ${title}`} />
+        <meta property="og:title" content={`Information about ${title}`} />
         <meta
           property="og:description"
-          content={`Pagina informativa sobre ${title}`}
+          content={`Informative page about ${title}`}
         />
         <meta
           property="og:image"

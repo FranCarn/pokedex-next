@@ -79,7 +79,7 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
                   color="gradient"
                   bordered={!isFavorite}
                 >
-                  Favoritos
+                  Favorites
                 </Button>
               </Grid>
             </Card.Header>

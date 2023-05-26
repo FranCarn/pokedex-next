@@ -43,7 +43,7 @@ export const Nabvar = () => {
       </NextLink>
       <Spacer css={{ flex: 1 }} />
       <NextLink href="/favorites">
-        <Text color="white">Favoritos</Text>
+        <Text color="white">Favorites</Text>
       </NextLink>
     </div>
   );
