@@ -24,6 +24,7 @@ const confettiOptions = {
 };
 
 const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
+  console.log(pokemon);
   const [isFavorite, setIsFavorite] = useState<boolean>(
     localFavorites.existPokemonInFavorites(pokemon.name)
   );
@@ -127,7 +128,12 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { name } = params as { name: string };
   const { data } = await pokeApi.get<Pokemon>(`/pokemon/${name}`);
-  const pokemon = { name: data.name, id: data.id, sprites: data.sprites };
+  const pokemon = {
+    name: data.name,
+    id: data.id,
+    sprites: data.sprites,
+    abilities: data.abilities,
+  };
 
   return {
     props: {
