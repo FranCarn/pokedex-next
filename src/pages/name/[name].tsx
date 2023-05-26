@@ -1,6 +1,14 @@
 import { GetStaticProps, NextPage, GetStaticPaths } from "next";
 import NextLink from "next/link";
-import { Button, Card, Container, Grid, Image, Text } from "@nextui-org/react";
+import {
+  Badge,
+  Button,
+  Card,
+  Container,
+  Grid,
+  Image,
+  Text,
+} from "@nextui-org/react";
 import confetti from "canvas-confetti";
 
 import { pokeApi } from "../../../api";
@@ -8,6 +16,7 @@ import { Layout } from "../../../components/layouts";
 import { Pokemon, PokemonListResponse } from "../../../interfaces";
 import { localFavorites } from "../../../utils";
 import { useState } from "react";
+import { Ability } from "../../../interfaces/pokemon-full";
 
 interface Props {
   pokemon: Pokemon;
@@ -24,7 +33,6 @@ const confettiOptions = {
 };
 
 const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
-  console.log(pokemon);
   const [isFavorite, setIsFavorite] = useState<boolean>(
     localFavorites.existPokemonInFavorites(pokemon.name)
   );
@@ -63,8 +71,8 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
                 {pokemon.name}
               </Text>
               <Grid css={{ display: "flex", gap: "$10" }}>
-                <Button color="gradient" ghost>
-                  <NextLink href="/">Volver</NextLink>
+                <Button color="gradient" ghost href="/" as="a">
+                  Volver
                 </Button>
                 <Button
                   onPress={handleFavorite}
@@ -106,6 +114,26 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
                 />
               </Container>
             </Card.Body>
+            <Card.Footer
+              css={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "start",
+              }}
+            >
+              <Text size={30}>Abilities:</Text>
+              <Container>
+                {pokemon.abilities.map((item) => (
+                  <Badge
+                    key={item.ability.name}
+                    size="md"
+                    css={{ textTransform: "capitalize" }}
+                  >
+                    {item.ability.name}
+                  </Badge>
+                ))}
+              </Container>
+            </Card.Footer>
           </Card>
         </Grid>
       </Grid.Container>
