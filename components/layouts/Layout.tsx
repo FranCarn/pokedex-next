@@ -8,6 +8,8 @@ interface Props {
 }
 
 export const Layout: React.FC<Props> = ({ children, title }) => {
+  const getPathImgToMetaTag =
+    typeof window === undefined ? "" : window.location.origin;
   return (
     <>
       <Head>
@@ -29,7 +31,7 @@ export const Layout: React.FC<Props> = ({ children, title }) => {
         />
         <meta
           property="og:image"
-          content="https://res.cloudinary.com/ddnuznzo6/image/upload/v1684953157/banner_v01jhn.png"
+          content={`${getPathImgToMetaTag}/banner.png`}
         />
       </Head>
       <Nabvar />
