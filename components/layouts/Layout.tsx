@@ -8,8 +8,10 @@ interface Props {
 }
 
 export const Layout: React.FC<Props> = ({ children, title }) => {
-  const getPathImgToMetaTag =
-    typeof window === undefined ? "" : window.location.origin;
+  const getPathImgToMetaTag = () => {
+    if (typeof window) return window.location.origin;
+    return "";
+  };
   return (
     <>
       <Head>
